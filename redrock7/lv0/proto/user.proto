@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package proto;
+service Login{
+    // 方法 (请求消息结构体) returns (返回消息结构体) {}
+    rpc Login(login) returns(Reply){}
+}
+
+service Update{
+    rpc Update(update) returns (Reply){}
+}
+
+service Register{
+    rpc Register(register) returns (Reply){}
+
+}
+message update{
+    string newusername=1;
+    string username=2;//想要修改的名字
+}
+
+message login{
+    string username=1;
+    string password=2;
+}
+message register{
+    string username = 1;
+    string password = 2;
+}
+
+message Reply{
+    string message = 1;
+}
